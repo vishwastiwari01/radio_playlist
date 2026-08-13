@@ -9,42 +9,45 @@
   "use strict";
 
   const PLAYLIST = [
-    {
-      title: "O Mere Dil Ke Chain — Kishore Kumar | Mere Jeevan Saathi (1972)",
-      artist: "Kishore Kumar, R.D. Burman",
-      ytThumb: "https://img.youtube.com/vi/kYJ4f64mXoI/mqdefault.jpg",
-      spotifyThumb: "https://img.youtube.com/vi/kYJ4f64mXoI/mqdefault.jpg",
-      duration: 272,
-      ytVid: "kYJ4f64mXoI",
-      audioUrl: ""
-    },
-    {
-      title: "Pal Pal Dil Ke Paas — Kishore Kumar | Blackmail (1973)",
-      artist: "Kishore Kumar",
-      ytThumb: "https://img.youtube.com/vi/8-H6q1EOM70/mqdefault.jpg",
-      spotifyThumb: "https://img.youtube.com/vi/8-H6q1EOM70/mqdefault.jpg",
-      duration: 329,
-      ytVid: "8-H6q1EOM70",
-      audioUrl: ""
-    },
-    {
-      title: "Yeh Sham Mastani — Kishore Kumar | Kati Patang (1971)",
-      artist: "Kishore Kumar, R.D. Burman",
-      ytThumb: "https://img.youtube.com/vi/_sZg4eUB3QM/mqdefault.jpg",
-      spotifyThumb: "https://img.youtube.com/vi/_sZg4eUB3QM/mqdefault.jpg",
-      duration: 276,
-      ytVid: "_sZg4eUB3QM",
-      audioUrl: ""
-    },
-    {
-      title: "Kya Hua Tera Vada — Mohammed Rafi | Hum Kisise Kum Naheen (1977)",
-      artist: "Mohammed Rafi, R.D. Burman",
-      ytThumb: "https://img.youtube.com/vi/n76L9R2HcwE/mqdefault.jpg",
-      spotifyThumb: "https://img.youtube.com/vi/n76L9R2HcwE/mqdefault.jpg",
-      duration: 260,
-      ytVid: "n76L9R2HcwE",
-      audioUrl: ""
-    }
+    // 🎶 90s / Auto-Bus-Salon Classics
+    { title: "Do Dil Mil Rahe Hain — Kumar Sanu", artist: "Kumar Sanu", ytVid: "11bT35Yw1S0", duration: 330, ytThumb: "https://img.youtube.com/vi/11bT35Yw1S0/mqdefault.jpg" },
+    { title: "Tujhe Dekha To — Kumar Sanu, Lata Mangeshkar | DDLJ", artist: "Kumar Sanu, Lata Mangeshkar", ytVid: "L6GvFp3S4r8", duration: 350, ytThumb: "https://img.youtube.com/vi/L6GvFp3S4r8/mqdefault.jpg" },
+    { title: "Ek Ladki Ko Dekha — Kumar Sanu | 1942 A Love Story", artist: "Kumar Sanu", ytVid: "c9L2YU3VKPM", duration: 345, ytThumb: "https://img.youtube.com/vi/c9L2YU3VKPM/mqdefault.jpg" },
+    { title: "Mera Dil Bhi Kitna Pagal Hai — Kumar Sanu, Alka Yagnik | Saajan", artist: "Kumar Sanu, Alka Yagnik", ytVid: "L2mYjWqpDHo", duration: 360, ytThumb: "https://img.youtube.com/vi/L2mYjWqpDHo/mqdefault.jpg" },
+    { title: "Chura Ke Dil Mera — Kumar Sanu, Alka Yagnik | Main Khiladi Tu Anari", artist: "Kumar Sanu, Alka Yagnik", ytVid: "aG-Qy262d-U", duration: 330, ytThumb: "https://img.youtube.com/vi/aG-Qy262d-U/mqdefault.jpg" },
+    { title: "Yeh Kaali Kaali Aankhen — Kumar Sanu | Baazigar", artist: "Kumar Sanu", ytVid: "Xh0Y92QkS5w", duration: 348, ytThumb: "https://img.youtube.com/vi/Xh0Y92QkS5w/mqdefault.jpg" },
+    { title: "Baazigar O Baazigar — Kumar Sanu, Alka Yagnik | Baazigar", artist: "Kumar Sanu, Alka Yagnik", ytVid: "3-M9311_J8E", duration: 312, ytThumb: "https://img.youtube.com/vi/3-M9311_J8E/mqdefault.jpg" },
+    { title: "Nazar Ke Saamne — Kumar Sanu, Anuradha Paudwal | Aashiqui", artist: "Kumar Sanu, Anuradha Paudwal", ytVid: "lzBSiNWEWjs", duration: 290, ytThumb: "https://img.youtube.com/vi/lzBSiNWEWjs/mqdefault.jpg" },
+    { title: "Jeeta Tha Jiske Liye — Kumar Sanu | Dilwale", artist: "Kumar Sanu", ytVid: "cX8gxZ7FNM8", duration: 340, ytThumb: "https://img.youtube.com/vi/cX8gxZ7FNM8/mqdefault.jpg" },
+    { title: "Pardesi Pardesi Jana Nahi — Udit Narayan, Alka Yagnik | Raja Hindustani", artist: "Udit Narayan, Alka Yagnik, Sapna Awasthi", ytVid: "o1Np2e1kBa8", duration: 451, ytThumb: "https://img.youtube.com/vi/o1Np2e1kBa8/mqdefault.jpg" },
+    { title: "Dheere Dheere Se Meri Zindagi Mein Aana — Kumar Sanu | Aashiqui", artist: "Kumar Sanu, Anuradha Paudwal", ytVid: "EY5S0yCeT8Y", duration: 310, ytThumb: "https://img.youtube.com/vi/EY5S0yCeT8Y/mqdefault.jpg" },
+    { title: "Kitna Haseen Chehra — Kumar Sanu | Dilwale", artist: "Kumar Sanu", ytVid: "l5nKEIHg_yA", duration: 310, ytThumb: "https://img.youtube.com/vi/l5nKEIHg_yA/mqdefault.jpg" },
+    // 🥀 Kishore Kumar Evergreens
+    { title: "O Mere Dil Ke Chain — Kishore Kumar | Mere Jeevan Saathi", artist: "Kishore Kumar", ytVid: "kYJ4f64mXoI", duration: 272, ytThumb: "https://img.youtube.com/vi/kYJ4f64mXoI/mqdefault.jpg" },
+    { title: "Pal Pal Dil Ke Paas — Kishore Kumar | Blackmail", artist: "Kishore Kumar", ytVid: "8-H6q1EOM70", duration: 329, ytThumb: "https://img.youtube.com/vi/8-H6q1EOM70/mqdefault.jpg" },
+    { title: "Mere Sapno Ki Rani — Kishore Kumar | Aradhana", artist: "Kishore Kumar", ytVid: "8233P612V4k", duration: 303, ytThumb: "https://img.youtube.com/vi/8233P612V4k/mqdefault.jpg" },
+    { title: "Yeh Sham Mastani — Kishore Kumar | Kati Patang", artist: "Kishore Kumar", ytVid: "_sZg4eUB3QM", duration: 276, ytThumb: "https://img.youtube.com/vi/_sZg4eUB3QM/mqdefault.jpg" },
+    { title: "Ek Ajnabee Haseena Se — Kishore Kumar | Ajnabee", artist: "Kishore Kumar", ytVid: "wX-yVf8dO6c", duration: 320, ytThumb: "https://img.youtube.com/vi/wX-yVf8dO6c/mqdefault.jpg" },
+    { title: "Chookar Mere Man Ko — Kishore Kumar | Yaarana", artist: "Kishore Kumar", ytVid: "Yw9T2u53L-k", duration: 295, ytThumb: "https://img.youtube.com/vi/Yw9T2u53L-k/mqdefault.jpg" },
+    { title: "Aane Wala Pal — Kishore Kumar | Golmaal", artist: "Kishore Kumar", ytVid: "h6903h4wB6c", duration: 280, ytThumb: "https://img.youtube.com/vi/h6903h4wB6c/mqdefault.jpg" },
+    { title: "Humein Tumse Pyaar Kitna — Kishore Kumar | Kudrat", artist: "Kishore Kumar", ytVid: "6dGrfYrPpVA", duration: 315, ytThumb: "https://img.youtube.com/vi/6dGrfYrPpVA/mqdefault.jpg" },
+    { title: "Zindagi Ek Safar Hai Suhana — Kishore Kumar | Andaz", artist: "Kishore Kumar", ytVid: "jLX1APFQ0rU", duration: 300, ytThumb: "https://img.youtube.com/vi/jLX1APFQ0rU/mqdefault.jpg" },
+    { title: "Musafir Hoon Yaaron — Kishore Kumar | Parichay", artist: "Kishore Kumar", ytVid: "r1IWXxF4FzI", duration: 288, ytThumb: "https://img.youtube.com/vi/r1IWXxF4FzI/mqdefault.jpg" },
+    // 🚕 Auto Mein Baj Raha Hai Energy
+    { title: "Pehla Nasha — Udit Narayan, Sadhana Sargam | Jo Jeeta Wohi Sikandar", artist: "Udit Narayan, Sadhana Sargam", ytVid: "F3vX8v4nL4I", duration: 360, ytThumb: "https://img.youtube.com/vi/F3vX8v4nL4I/mqdefault.jpg" },
+    { title: "Ghar Se Nikalte Hi — Udit Narayan | Papa Kehte Hain", artist: "Udit Narayan", ytVid: "M3vxVE3tMkk", duration: 295, ytThumb: "https://img.youtube.com/vi/M3vxVE3tMkk/mqdefault.jpg" },
+    { title: "Aaye Ho Meri Zindagi Mein — Udit Narayan | Raja Hindustani", artist: "Udit Narayan", ytVid: "cxHi8bX3rpE", duration: 340, ytThumb: "https://img.youtube.com/vi/cxHi8bX3rpE/mqdefault.jpg" },
+    { title: "Humko Sirf Tumse Pyaar Hai — Kumar Sanu | Baazigar", artist: "Kumar Sanu", ytVid: "QqH3qVEMb0Y", duration: 330, ytThumb: "https://img.youtube.com/vi/QqH3qVEMb0Y/mqdefault.jpg" },
+    { title: "Tu Mile Dil Khile — Kumar Sanu | Criminal", artist: "Kumar Sanu", ytVid: "XgjGBZBKarw", duration: 340, ytThumb: "https://img.youtube.com/vi/XgjGBZBKarw/mqdefault.jpg" },
+    { title: "Woh Ladki Jo — Abhijeet | Ghulam", artist: "Abhijeet", ytVid: "IQy6NKQHQO0", duration: 345, ytThumb: "https://img.youtube.com/vi/IQy6NKQHQO0/mqdefault.jpg" },
+    // 💔 Heartbroken Uncle in an Auto Section
+    { title: "Chitthi Aayi Hai — Pankaj Udhas | Naam", artist: "Pankaj Udhas", ytVid: "cKNLk1FMOBY", duration: 380, ytThumb: "https://img.youtube.com/vi/cKNLk1FMOBY/mqdefault.jpg" },
+    { title: "Koi Fariyaad — Jagjit Singh | Tum Bin", artist: "Jagjit Singh", ytVid: "Qh2_9e2o0-4", duration: 350, ytThumb: "https://img.youtube.com/vi/Qh2_9e2o0-4/mqdefault.jpg" },
+    { title: "Tum Itna Jo Muskura Rahe Ho — Jagjit Singh", artist: "Jagjit Singh", ytVid: "BNmunMhH6NE", duration: 370, ytThumb: "https://img.youtube.com/vi/BNmunMhH6NE/mqdefault.jpg" },
+    { title: "Kya Mujhe Pyaar Hai — KK | Woh Lamhe", artist: "KK", ytVid: "o2-i94t_i40", duration: 345, ytThumb: "https://img.youtube.com/vi/o2-i94t_i40/mqdefault.jpg" },
+    { title: "Tadap Tadap Ke — KK | Hum Dil De Chuke Sanam", artist: "KK", ytVid: "o2d6M6GfPsc", duration: 358, ytThumb: "https://img.youtube.com/vi/o2d6M6GfPsc/mqdefault.jpg" },
+    { title: "Awarapan Banjarapan — KK | Jism", artist: "KK", ytVid: "a4VXJTfsIDo", duration: 340, ytThumb: "https://img.youtube.com/vi/a4VXJTfsIDo/mqdefault.jpg" },
+    { title: "Sach Keh Raha Hai Deewana — KK | Rehna Hai Tere Dil Mein", artist: "KK", ytVid: "x0-lH_7Gfgk", duration: 330, ytThumb: "https://img.youtube.com/vi/x0-lH_7Gfgk/mqdefault.jpg" },
   ];
 
   let currentTrackIdx = 0;
