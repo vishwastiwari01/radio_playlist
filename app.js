@@ -426,12 +426,22 @@
 
         // 2. YouTube Playlist Logic (paste a YouTube playlist link to replace current queue)
         const playlistUrl = document.getElementById("playlist-url-input").value.trim();
-              if (elTrackTitleDup) elTrackTitleDup.textContent = "Custom YouTube Playlist Loaded";
-              if (elTrackArtist) elTrackArtist.textContent = "Use player controls to skip tracks";
-            }
+        if (playlistUrl && (playlistUrl.includes("youtube.com") || playlistUrl.includes("youtu.be"))) {
+          const match = playlistUrl.match(/[?&]list=([^#\&\?]+)/);
+          if (match && match[1] && ytPlayer) {
+            ytPlayer.loadPlaylist({ list: match[1], listType: "playlist" });
+            if (elTrackTitle) elTrackTitle.textContent = "Custom YouTube Playlist";
+            if (elTrackTitleDup) elTrackTitleDup.textContent = "Custom YouTube Playlist";
+            if (elTrackArtist) elTrackArtist.textContent = "Use ⏮ ⏭ to skip tracks";
           }
         }
-        
+
+        // Background File Input preview label
+        const bgFileInputEl = document.getElementById("bg-file-input");
+        if (bgFileInputEl && bgFileInputEl.files[0]) {
+          bgFileInputEl.title = bgFileInputEl.files[0].name;
+        }
+
         customizeModal.classList.add("hidden");
       });
     }
