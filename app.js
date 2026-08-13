@@ -226,11 +226,13 @@
   }
 
   function prevTrack() {
+    if (currentSource === "yt" && ytPlayer && typeof ytPlayer.previousVideo === "function") {
+      ytPlayer.previousVideo();
+      return;
+    }
     loadTrack(currentTrackIdx - 1);
     if (isPlaying) {
-      if (currentSource === "yt" && ytPlayer && typeof ytPlayer.playVideo === "function") {
-        ytPlayer.playVideo();
-      } else if (currentSource === "spotify" && spotifyAudio) {
+      if (currentSource === "spotify" && spotifyAudio) {
         spotifyAudio.play().catch(() => {});
       }
       startPlaybackTimer();
@@ -238,11 +240,13 @@
   }
 
   function nextTrack() {
+    if (currentSource === "yt" && ytPlayer && typeof ytPlayer.nextVideo === "function") {
+      ytPlayer.nextVideo();
+      return;
+    }
     loadTrack(currentTrackIdx + 1);
     if (isPlaying) {
-      if (currentSource === "yt" && ytPlayer && typeof ytPlayer.playVideo === "function") {
-        ytPlayer.playVideo();
-      } else if (currentSource === "spotify" && spotifyAudio) {
+      if (currentSource === "spotify" && spotifyAudio) {
         spotifyAudio.play().catch(() => {});
       }
       startPlaybackTimer();
@@ -338,8 +342,7 @@
   // ─── YouTube IFrame API Initialization ────────────────
   window.onYouTubeIframeAPIReady = function () {
     ytPlayer = new YT.Player("yt-api-player", {
-      videoId: PLAYLIST[0].ytVid,
-      playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, playsinline: 1 },
+      playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, playsinline: 1, listType: 'playlist', list: 'PLP7LBOIQKXnA4xVwRgtLc4l-_0BEt64O4' },
       events: {
         onStateChange: (event) => {
           if (currentSource === "yt") {
@@ -347,6 +350,12 @@
               isPlaying = true;
               updatePlayIcon();
               startPlaybackTimer();
+              
+              if (ytPlayer.getVideoData && ytPlayer.getVideoData().title) {
+                const title = ytPlayer.getVideoData().title;
+                if (elTrackTitle) elTrackTitle.textContent = title;
+                if (elTrackTitleDup) elTrackTitleDup.textContent = title;
+              }
             } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
               isPlaying = false;
               updatePlayIcon();
