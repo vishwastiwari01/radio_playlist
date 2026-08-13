@@ -131,10 +131,9 @@
     if (elTrackTitle) elTrackTitle.textContent = track.title;
     if (elTrackTitleDup) elTrackTitleDup.textContent = track.title;
     if (elTrackArtist) elTrackArtist.textContent = track.artist;
-    
-    // Switch Cover Art Image
+
     if (elTrackThumb) {
-      elTrackThumb.src = currentSource === "spotify" ? track.spotifyThumb : track.ytThumb;
+      elTrackThumb.src = track.ytThumb || `https://img.youtube.com/vi/${track.ytVid}/mqdefault.jpg`;
     }
 
     if (elTimeTotal) elTimeTotal.textContent = formatTime(track.duration);
@@ -142,10 +141,13 @@
     if (elProgressFill) elProgressFill.style.width = "0%";
     if (elSeekSlider) elSeekSlider.value = 0;
 
-    if (currentSource === "spotify" && spotifyAudio) {
-      spotifyAudio.src = track.audioUrl;
-    } else if (currentSource === "yt" && ytPlayer && typeof ytPlayer.loadVideoById === "function") {
-      ytPlayer.loadVideoById(track.ytVid);
+    // If YT player is ready and playing, load the new video immediately
+    if (currentSource === "yt" && ytPlayer) {
+      if (isPlaying && typeof ytPlayer.loadVideoById === "function") {
+        ytPlayer.loadVideoById(track.ytVid);
+      } else if (typeof ytPlayer.cueVideoById === "function") {
+        ytPlayer.cueVideoById(track.ytVid);
+      }
     }
   }
 
@@ -342,17 +344,23 @@
   window.onYouTubeIframeAPIReady = function () {
     ytPlayer = new YT.Player("yt-api-player", {
       videoId: PLAYLIST[0].ytVid,
-      playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, playsinline: 1 },
+      playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, playsinline: 1, iv_load_policy: 3 },
       events: {
+        onReady: () => {
+          ytPlayer.cueVideoById(PLAYLIST[0].ytVid);
+        },
         onStateChange: (event) => {
           if (currentSource === "yt") {
             if (event.data === YT.PlayerState.PLAYING) {
               isPlaying = true;
               updatePlayIcon();
               startPlaybackTimer();
-            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+            } else if (event.data === YT.PlayerState.PAUSED) {
               isPlaying = false;
               updatePlayIcon();
+            } else if (event.data === YT.PlayerState.ENDED) {
+              nextTrack();
+              togglePlay();
             }
           }
         }
