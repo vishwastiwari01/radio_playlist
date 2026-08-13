@@ -33,6 +33,10 @@
     { title: "Humein Tumse Pyaar Kitna — Kishore Kumar | Kudrat", artist: "Kishore Kumar", ytVid: "6dGrfYrPpVA", duration: 315, ytThumb: "https://img.youtube.com/vi/6dGrfYrPpVA/mqdefault.jpg" },
     { title: "Zindagi Ek Safar Hai Suhana — Kishore Kumar | Andaz", artist: "Kishore Kumar", ytVid: "jLX1APFQ0rU", duration: 300, ytThumb: "https://img.youtube.com/vi/jLX1APFQ0rU/mqdefault.jpg" },
     { title: "Musafir Hoon Yaaron — Kishore Kumar | Parichay", artist: "Kishore Kumar", ytVid: "r1IWXxF4FzI", duration: 288, ytThumb: "https://img.youtube.com/vi/r1IWXxF4FzI/mqdefault.jpg" },
+    { title: "Agar Tum Na Hote — Kishore Kumar", artist: "Kishore Kumar", ytVid: "cCaU0MkGqMs", duration: 300, ytThumb: "https://img.youtube.com/vi/cCaU0MkGqMs/mqdefault.jpg" },
+    { title: "Khaike Paan Banaraswala — Kishore Kumar", artist: "Kishore Kumar", ytVid: "C3tcvnEqN9I", duration: 300, ytThumb: "https://img.youtube.com/vi/C3tcvnEqN9I/mqdefault.jpg" },
+    { title: "Roop Tera Mastana — Kishore Kumar", artist: "Kishore Kumar", ytVid: "dyEdcOhxJNQ", duration: 300, ytThumb: "https://img.youtube.com/vi/dyEdcOhxJNQ/mqdefault.jpg" },
+    { title: "Mere Mehboob Qayamat Hogi — Kishore Kumar", artist: "Kishore Kumar", ytVid: "MCRfiK53mpE", duration: 300, ytThumb: "https://img.youtube.com/vi/MCRfiK53mpE/mqdefault.jpg" },
     // 🚕 Auto Mein Baj Raha Hai Energy
     { title: "Pehla Nasha — Udit Narayan, Sadhana Sargam | Jo Jeeta Wohi Sikandar", artist: "Udit Narayan, Sadhana Sargam", ytVid: "F3vX8v4nL4I", duration: 360, ytThumb: "https://img.youtube.com/vi/F3vX8v4nL4I/mqdefault.jpg" },
     { title: "Ghar Se Nikalte Hi — Udit Narayan | Papa Kehte Hain", artist: "Udit Narayan", ytVid: "M3vxVE3tMkk", duration: 295, ytThumb: "https://img.youtube.com/vi/M3vxVE3tMkk/mqdefault.jpg" },
@@ -40,10 +44,22 @@
     { title: "Humko Sirf Tumse Pyaar Hai — Kumar Sanu | Baazigar", artist: "Kumar Sanu", ytVid: "QqH3qVEMb0Y", duration: 330, ytThumb: "https://img.youtube.com/vi/QqH3qVEMb0Y/mqdefault.jpg" },
     { title: "Tu Mile Dil Khile — Kumar Sanu | Criminal", artist: "Kumar Sanu", ytVid: "XgjGBZBKarw", duration: 340, ytThumb: "https://img.youtube.com/vi/XgjGBZBKarw/mqdefault.jpg" },
     { title: "Woh Ladki Jo — Abhijeet | Ghulam", artist: "Abhijeet", ytVid: "IQy6NKQHQO0", duration: 345, ytThumb: "https://img.youtube.com/vi/IQy6NKQHQO0/mqdefault.jpg" },
+    { title: "Sanam Mere Humraaz — Kumar Sanu", artist: "Kumar Sanu", ytVid: "6l-xttk2IQg", duration: 300, ytThumb: "https://img.youtube.com/vi/6l-xttk2IQg/mqdefault.jpg" },
+    { title: "Mera Chand Mujhe Aaya Hai Nazar — Kumar Sanu", artist: "Kumar Sanu", ytVid: "9GJToQrlt4Y", duration: 300, ytThumb: "https://img.youtube.com/vi/9GJToQrlt4Y/mqdefault.jpg" },
+    { title: "Woh Ladki Bahut Yaad Aati Hai — Kumar Sanu", artist: "Kumar Sanu", ytVid: "d5ZrSe1eDDU", duration: 300, ytThumb: "https://img.youtube.com/vi/d5ZrSe1eDDU/mqdefault.jpg" },
+    { title: "Aisi Deewangi — Alka Yagnik", artist: "Alka Yagnik", ytVid: "_YjSmLlmqLM", duration: 300, ytThumb: "https://img.youtube.com/vi/_YjSmLlmqLM/mqdefault.jpg" },
+    { title: "Ab Tere Bin Jee Lenge Hum — Kumar Sanu", artist: "Kumar Sanu", ytVid: "rXHY4Cv9cA8", duration: 300, ytThumb: "https://img.youtube.com/vi/rXHY4Cv9cA8/mqdefault.jpg" },
+    { title: "Tere Dar Se Sanam — Kumar Sanu", artist: "Kumar Sanu", ytVid: "05o4kCUY2Ys", duration: 300, ytThumb: "https://img.youtube.com/vi/05o4kCUY2Ys/mqdefault.jpg" },
+    { title: "Mujhe Neend Na Aaye — Udit Narayan", artist: "Udit Narayan", ytVid: "qjLPZsfA9Os", duration: 300, ytThumb: "https://img.youtube.com/vi/qjLPZsfA9Os/mqdefault.jpg" },
+    { title: "Aankhon Se Tune Kya Keh Diya — Kumar Sanu", artist: "Kumar Sanu", ytVid: "RlSRxyxFwXI", duration: 300, ytThumb: "https://img.youtube.com/vi/RlSRxyxFwXI/mqdefault.jpg" },
+    { title: "Dheere Dheere Pyar Ko Badhana Hai — Kumar Sanu", artist: "Kumar Sanu", ytVid: "zuPoUsdXrqM", duration: 300, ytThumb: "https://img.youtube.com/vi/zuPoUsdXrqM/mqdefault.jpg" },
     // 💔 Heartbroken Uncle in an Auto Section
     { title: "Chitthi Aayi Hai — Pankaj Udhas | Naam", artist: "Pankaj Udhas", ytVid: "cKNLk1FMOBY", duration: 380, ytThumb: "https://img.youtube.com/vi/cKNLk1FMOBY/mqdefault.jpg" },
     { title: "Koi Fariyaad — Jagjit Singh | Tum Bin", artist: "Jagjit Singh", ytVid: "Qh2_9e2o0-4", duration: 350, ytThumb: "https://img.youtube.com/vi/Qh2_9e2o0-4/mqdefault.jpg" },
     { title: "Tum Itna Jo Muskura Rahe Ho — Jagjit Singh", artist: "Jagjit Singh", ytVid: "BNmunMhH6NE", duration: 370, ytThumb: "https://img.youtube.com/vi/BNmunMhH6NE/mqdefault.jpg" },
+    { title: "Hoshwalon Ko Khabar Kya — Jagjit Singh", artist: "Jagjit Singh", ytVid: "ag3ENMEV89o", duration: 300, ytThumb: "https://img.youtube.com/vi/ag3ENMEV89o/mqdefault.jpg" },
+    { title: "Hungama Hai Kyon Barpa — Ghulam Ali", artist: "Ghulam Ali", ytVid: "xQsMn1kmJs4", duration: 300, ytThumb: "https://img.youtube.com/vi/xQsMn1kmJs4/mqdefault.jpg" },
+    { title: "Chithi Na Koi Sandesh — Jagjit Singh", artist: "Jagjit Singh", ytVid: "sBBzwoSngGg", duration: 300, ytThumb: "https://img.youtube.com/vi/sBBzwoSngGg/mqdefault.jpg" },
     { title: "Kya Mujhe Pyaar Hai — KK | Woh Lamhe", artist: "KK", ytVid: "o2-i94t_i40", duration: 345, ytThumb: "https://img.youtube.com/vi/o2-i94t_i40/mqdefault.jpg" },
     { title: "Tadap Tadap Ke — KK | Hum Dil De Chuke Sanam", artist: "KK", ytVid: "o2d6M6GfPsc", duration: 358, ytThumb: "https://img.youtube.com/vi/o2d6M6GfPsc/mqdefault.jpg" },
     { title: "Awarapan Banjarapan — KK | Jism", artist: "KK", ytVid: "a4VXJTfsIDo", duration: 340, ytThumb: "https://img.youtube.com/vi/a4VXJTfsIDo/mqdefault.jpg" },
@@ -53,6 +69,7 @@
   let currentTrackIdx = 0;
   let currentSource = "yt"; // 'yt' or 'spotify'
   let isPlaying = false;
+  let isCustomPlaylist = false;
   let currentTime = 0;
   let playbackTimer = null;
   let ytPlayer = null;
@@ -220,6 +237,11 @@
   }
 
   function prevTrack() {
+    if (isCustomPlaylist && currentSource === "yt" && ytPlayer) {
+      if (typeof ytPlayer.previousVideo === "function") ytPlayer.previousVideo();
+      return;
+    }
+
     loadTrack(currentTrackIdx - 1);
     if (isPlaying) {
       if (currentSource === "yt" && ytPlayer && typeof ytPlayer.playVideo === "function") {
@@ -232,6 +254,11 @@
   }
 
   function nextTrack() {
+    if (isCustomPlaylist && currentSource === "yt" && ytPlayer) {
+      if (typeof ytPlayer.nextVideo === "function") ytPlayer.nextVideo();
+      return;
+    }
+
     loadTrack(currentTrackIdx + 1);
     if (isPlaying) {
       if (currentSource === "yt" && ytPlayer && typeof ytPlayer.playVideo === "function") {
@@ -363,6 +390,17 @@
               isPlaying = true;
               updatePlayIcon();
               startPlaybackTimer();
+              
+              // If custom playlist, grab real title from YT API
+              if (isCustomPlaylist && typeof ytPlayer.getVideoData === "function") {
+                const vData = ytPlayer.getVideoData();
+                if (vData && vData.title) {
+                  if (elTrackTitle) elTrackTitle.textContent = vData.title;
+                  if (elTrackTitleDup) elTrackTitleDup.textContent = vData.title;
+                  if (elTrackArtist) elTrackArtist.textContent = vData.author || "YouTube Video";
+                }
+              }
+
             } else if (event.data === YT.PlayerState.PAUSED) {
               isPlaying = false;
               updatePlayIcon();
@@ -427,12 +465,27 @@
         // 2. YouTube Playlist Logic (paste a YouTube playlist link to replace current queue)
         const playlistUrl = document.getElementById("playlist-url-input").value.trim();
         if (playlistUrl && (playlistUrl.includes("youtube.com") || playlistUrl.includes("youtu.be"))) {
-          const match = playlistUrl.match(/[?&]list=([^#\&\?]+)/);
-          if (match && match[1] && ytPlayer) {
-            ytPlayer.loadPlaylist({ list: match[1], listType: "playlist" });
-            if (elTrackTitle) elTrackTitle.textContent = "Custom YouTube Playlist";
-            if (elTrackTitleDup) elTrackTitleDup.textContent = "Custom YouTube Playlist";
-            if (elTrackArtist) elTrackArtist.textContent = "Use ⏮ ⏭ to skip tracks";
+          let listId = null;
+          const matchList = playlistUrl.match(/[?&]list=([^#\&\?]+)/);
+          if (matchList && matchList[1]) {
+            listId = matchList[1];
+          }
+          
+          if (listId && ytPlayer) {
+            isCustomPlaylist = true;
+            ytPlayer.loadPlaylist({ list: listId, listType: "playlist" });
+            if (elTrackTitle) elTrackTitle.textContent = "Loading Playlist...";
+            if (elTrackTitleDup) elTrackTitleDup.textContent = "Loading Playlist...";
+            if (elTrackArtist) elTrackArtist.textContent = "Please wait";
+            switchSource("yt");
+          } else {
+             // Try single video
+             const matchVid = playlistUrl.match(/(?:v=|youtu\.be\/)([^#\&\?]+)/);
+             if (matchVid && matchVid[1] && ytPlayer) {
+               isCustomPlaylist = true;
+               ytPlayer.loadVideoById(matchVid[1]);
+               switchSource("yt");
+             }
           }
         }
 
