@@ -271,39 +271,38 @@
     if (elTimeCurrent) elTimeCurrent.textContent = formatTime(currentTime);
   }
 
-  // ─── Source Switcher (YT <-> Spotify) ────────────────
+  // ─── Source Switcher (YT ↔ Spotify) ──────────────────
   function switchSource(target) {
     if (target === currentSource) return;
     currentSource = target;
 
-    // Pause current audio
-    if (ytPlayer && typeof ytPlayer.pauseVideo === "function") {
-      try { ytPlayer.pauseVideo(); } catch (_) {}
-    }
-    if (spotifyAudio) {
-      spotifyAudio.pause();
-    }
+    const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
+    const spotifyIframe = document.getElementById("spotify-iframe");
 
     if (target === "spotify") {
-      if (tabYt) tabYt.classList.remove("active-yt");
-      if (tabSpotify) tabSpotify.classList.add("active-spotify");
-      if (elSourceTag) elSourceTag.textContent = "SPOTIFY";
+      // Pause YT
+      if (ytPlayer && typeof ytPlayer.pauseVideo === "function") {
+        try { ytPlayer.pauseVideo(); } catch (_) {}
+      }
+      isPlaying = false;
+      updatePlayIcon();
+      clearInterval(playbackTimer);
 
-      // Change Cover Image to Spotify Artwork
-      if (elTrackThumb) elTrackThumb.src = PLAYLIST[currentTrackIdx].spotifyThumb;
-      if (spotifyAudio) spotifyAudio.src = PLAYLIST[currentTrackIdx].audioUrl;
+      // Show Spotify embed with the Old is Gold playlist
+      if (spotifyIframe && !spotifyIframe.src.includes("spotify")) {
+        spotifyIframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DWYRTlrhMB12D?utm_source=generator&theme=0";
+      }
+      if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "block";
+
+      if (tabYt) { tabYt.classList.remove("active-yt"); tabYt.style.opacity = "0.5"; }
+      if (tabSpotify) { tabSpotify.classList.add("active-spotify"); tabSpotify.style.opacity = "1"; }
 
     } else {
-      if (tabSpotify) tabSpotify.classList.remove("active-spotify");
-      if (tabYt) tabYt.classList.add("active-yt");
-      if (elSourceTag) elSourceTag.textContent = "YOUTUBE";
+      // Switch back to YT
+      if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "none";
 
-      // Change Cover Image to YouTube Artwork
-      if (elTrackThumb) elTrackThumb.src = PLAYLIST[currentTrackIdx].ytThumb;
-    }
-
-    if (isPlaying) {
-      togglePlay();
+      if (tabSpotify) { tabSpotify.classList.remove("active-spotify"); tabSpotify.style.opacity = "0.5"; }
+      if (tabYt) { tabYt.classList.add("active-yt"); tabYt.style.opacity = "1"; }
     }
   }
 
@@ -378,14 +377,6 @@
 
     loadTrack(0);
 
-    // Auto-load user's custom Spotify playlist on load
-    const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
-    const spotifyIframe = document.getElementById("spotify-iframe");
-    if (spotifyIframe && spotifyEmbedContainer) {
-      spotifyIframe.src = `https://open.spotify.com/embed/playlist/37i9dQZF1DWYRTlrhMB12D?utm_source=generator&theme=0`;
-      spotifyEmbedContainer.style.display = "block";
-    }
-
     if (typeof liquidGlass === "function") {
       document.querySelectorAll(".lg-component").forEach((el) => {
         liquidGlass(el, {
@@ -425,33 +416,8 @@
           bgImage.src = bgUrlInput;
         }
 
-        // 2. Playlist Logic
+        // 2. YouTube Playlist Logic (paste a YouTube playlist link to replace current queue)
         const playlistUrl = document.getElementById("playlist-url-input").value.trim();
-        if (playlistUrl) {
-          const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
-          const defaultPlayer = document.getElementById("player-bar-fixed");
-          
-          if (playlistUrl.includes("spotify.com/playlist/")) {
-            // Extract Spotify Playlist ID
-            const match = playlistUrl.match(/playlist\/([a-zA-Z0-9]+)/);
-            if (match && match[1]) {
-              const spotifyIframe = document.getElementById("spotify-iframe");
-              spotifyIframe.src = `https://open.spotify.com/embed/playlist/${match[1]}?utm_source=generator&theme=0`;
-              
-              if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "block";
-              
-              if (isPlaying) togglePlay(); // Pause internal player so iframe can play
-            }
-          } else if (playlistUrl.includes("youtube.com") || playlistUrl.includes("youtu.be")) {
-            // Extract YouTube Playlist ID
-            const match = playlistUrl.match(/[?&]list=([^#\&\?]+)/);
-            if (match && match[1] && ytPlayer) {
-              ytPlayer.loadPlaylist({ list: match[1], listType: "playlist" });
-              
-              if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "none";
-              
-              // Update title to indicate custom playlist is loaded
-              if (elTrackTitle) elTrackTitle.textContent = "Custom YouTube Playlist Loaded";
               if (elTrackTitleDup) elTrackTitleDup.textContent = "Custom YouTube Playlist Loaded";
               if (elTrackArtist) elTrackArtist.textContent = "Use player controls to skip tracks";
             }
