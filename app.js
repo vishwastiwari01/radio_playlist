@@ -226,13 +226,11 @@
   }
 
   function prevTrack() {
-    if (currentSource === "yt" && ytPlayer && typeof ytPlayer.previousVideo === "function") {
-      ytPlayer.previousVideo();
-      return;
-    }
     loadTrack(currentTrackIdx - 1);
     if (isPlaying) {
-      if (currentSource === "spotify" && spotifyAudio) {
+      if (currentSource === "yt" && ytPlayer && typeof ytPlayer.playVideo === "function") {
+        ytPlayer.playVideo();
+      } else if (currentSource === "spotify" && spotifyAudio) {
         spotifyAudio.play().catch(() => {});
       }
       startPlaybackTimer();
@@ -240,13 +238,11 @@
   }
 
   function nextTrack() {
-    if (currentSource === "yt" && ytPlayer && typeof ytPlayer.nextVideo === "function") {
-      ytPlayer.nextVideo();
-      return;
-    }
     loadTrack(currentTrackIdx + 1);
     if (isPlaying) {
-      if (currentSource === "spotify" && spotifyAudio) {
+      if (currentSource === "yt" && ytPlayer && typeof ytPlayer.playVideo === "function") {
+        ytPlayer.playVideo();
+      } else if (currentSource === "spotify" && spotifyAudio) {
         spotifyAudio.play().catch(() => {});
       }
       startPlaybackTimer();
@@ -342,7 +338,8 @@
   // ─── YouTube IFrame API Initialization ────────────────
   window.onYouTubeIframeAPIReady = function () {
     ytPlayer = new YT.Player("yt-api-player", {
-      playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, playsinline: 1, listType: 'playlist', list: 'PLP7LBOIQKXnA4xVwRgtLc4l-_0BEt64O4' },
+      videoId: PLAYLIST[0].ytVid,
+      playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, playsinline: 1 },
       events: {
         onStateChange: (event) => {
           if (currentSource === "yt") {
@@ -350,12 +347,6 @@
               isPlaying = true;
               updatePlayIcon();
               startPlaybackTimer();
-              
-              if (ytPlayer.getVideoData && ytPlayer.getVideoData().title) {
-                const title = ytPlayer.getVideoData().title;
-                if (elTrackTitle) elTrackTitle.textContent = title;
-                if (elTrackTitleDup) elTrackTitleDup.textContent = title;
-              }
             } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
               isPlaying = false;
               updatePlayIcon();
@@ -375,6 +366,14 @@
     }
 
     loadTrack(0);
+
+    // Auto-load user's custom Spotify playlist on load
+    const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
+    const spotifyIframe = document.getElementById("spotify-iframe");
+    if (spotifyIframe && spotifyEmbedContainer) {
+      spotifyIframe.src = `https://open.spotify.com/embed/playlist/37i9dQZF1DWYRTlrhMB12D?utm_source=generator&theme=0`;
+      spotifyEmbedContainer.style.display = "block";
+    }
 
     if (typeof liquidGlass === "function") {
       document.querySelectorAll(".lg-component").forEach((el) => {
@@ -429,7 +428,6 @@
               spotifyIframe.src = `https://open.spotify.com/embed/playlist/${match[1]}?utm_source=generator&theme=0`;
               
               if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "block";
-              if (defaultPlayer) defaultPlayer.style.display = "none";
               
               if (isPlaying) togglePlay(); // Pause internal player so iframe can play
             }
@@ -440,7 +438,6 @@
               ytPlayer.loadPlaylist({ list: match[1], listType: "playlist" });
               
               if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "none";
-              if (defaultPlayer) defaultPlayer.style.display = "block";
               
               // Update title to indicate custom playlist is loaded
               if (elTrackTitle) elTrackTitle.textContent = "Custom YouTube Playlist Loaded";
