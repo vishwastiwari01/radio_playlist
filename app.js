@@ -376,6 +376,14 @@
 
     loadTrack(0);
 
+    // Auto-load user's custom Spotify playlist on load
+    const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
+    const spotifyIframe = document.getElementById("spotify-iframe");
+    if (spotifyIframe && spotifyEmbedContainer) {
+      spotifyIframe.src = `https://open.spotify.com/embed/playlist/37i9dQZF1DWYRTlrhMB12D?utm_source=generator&theme=0`;
+      spotifyEmbedContainer.style.display = "block";
+    }
+
     if (typeof liquidGlass === "function") {
       document.querySelectorAll(".lg-component").forEach((el) => {
         liquidGlass(el, {
