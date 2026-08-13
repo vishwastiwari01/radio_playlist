@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ऑटोवाला Playlist — Gaane Jo Sadak Se Dil Tak</title>
+  <meta name="description" content="Autowala Playlist — an ambient street-radio experience with 90s Hindi film tunes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Google AdSense Placeholder -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Full-Screen Fixed Background Layer -->
+  <div id="bg-layer">
+    <img src="background.jpg" alt="Autowala Playlist artwork" id="bg-image">
+    <div id="bg-dimmer"></div>
+  </div>
+
+  <!-- Ambient Dust Particles -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Fixed Top Navigation Bar -->
+  <header id="top-bar">
+    <div class="top-left">
+      <span id="clock">5:33 PM</span>
+    </div>
+    <div class="top-center lg-component">
+      <span class="online-dot"></span>
+      <span id="online-count">1123 online</span>
+    </div>
+    <div class="top-right">
+      <a href="https://open.spotify.com/playlist/0S9PukQjdvIPiwBE8N7t9g" target="_blank" rel="noopener" class="top-pill lg-component">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="https://youtu.be/665bcdJ2hQs" target="_blank" rel="noopener" class="top-pill lg-component">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YT Music
+      </a>
+      <a href="#rotations-anchor" class="top-pill lg-component">Playlists</a>
+      <a href="#rotations-anchor" class="top-pill lg-component">Songs</a>
+      <button class="top-pill lg-component" id="btn-customize">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Customize
+      </button>
+      <button class="top-pill lg-component" id="btn-install">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Install
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Content Scroll View -->
+  <div id="scroll-wrapper">
+
+    <!-- Top Hero View Container (100vh) -->
+    <div id="hero-fold"></div>
+
+    <!-- Scrolled Info Content Section (Liquid Glass Container Card) -->
+    <section id="info-section">
+      <div class="info-content-card lg-section-card lg-component" id="rotations-anchor">
+        
+        <!-- Brand Header -->
+        <div class="brand-header">
+          <div class="brand-badge lg-component">
+            <span class="brand-badge-text">AP</span>
+          </div>
+          <div class="brand-text">
+            <h1 class="brand-title">ऑटोवाला प्लेलिस्ट</h1>
+            <p class="brand-subtitle">AUTOWALA PLAYLIST</p>
+          </div>
+        </div>
+
+        <!-- Description Paragraph -->
+        <p class="section-description">
+          90s Hindi film songs, playing round the clock — the kind of tape that never stops at a neighbourhood auto-rickshaw stand. Gaane jo sadak se dil tak, echoing through every corner of Indian streets.
+        </p>
+
+        <!-- Rotations / Playlists Grid -->
+        <div class="rotations-block">
+          <h2 class="rotations-label">ROTATIONS</h2>
+          <div class="rotations-grid">
+            <div class="rotation-item lg-component" data-track-idx="0">
+              <span class="rotation-name">Highway Raat</span>
+              <span class="rotation-desc">Late night driving hits</span>
+            </div>
+            <div class="rotation-item lg-component" data-track-idx="1">
+              <span class="rotation-name">Sadak Classics</span>
+              <span class="rotation-desc">Timeless street anthems</span>
+            </div>
+            <div class="rotation-item lg-component" data-track-idx="2">
+              <span class="rotation-name">90s Dard</span>
+              <span class="rotation-desc">Melancholic retro melodies</span>
+            </div>
+            <div class="rotation-item lg-component" data-track-idx="3">
+              <span class="rotation-name">Shaadi & Sunday</span>
+              <span class="rotation-desc">High energy celebrations</span>
+            </div>
+            <div class="rotation-item rotation-full lg-component" data-track-idx="4">
+              <span class="rotation-name">All songs</span>
+              <span class="rotation-desc">Complete 100+ track collection</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="action-buttons-row">
+          <a href="https://open.spotify.com/playlist/0S9PukQjdvIPiwBE8N7t9g" target="_blank" rel="noopener" class="action-btn spotify-btn lg-component">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            Spotify
+          </a>
+          <a href="https://youtu.be/665bcdJ2hQs" target="_blank" rel="noopener" class="action-btn yt-btn lg-component">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YT Music
+          </a>
+        </div>
+
+        <!-- Google AdSense Ad Slot -->
+        <div class="adsense-container lg-component" style="margin-top: 30px; text-align: center; border-radius: 12px; overflow: hidden;">
+          <!-- Ad placeholder for local dev -->
+          <div class="ad-placeholder" style="padding: 20px; background: rgba(0,0,0,0.3); color: #aaa; font-size: 14px;">
+            Google AdSense Banner Slot
+          </div>
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-1234567890123456"
+               data-ad-slot="1234567890"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!-- Disclaimer & Copyright Footer -->
+        <div class="disclaimer-block">
+          <p class="disclaimer-text">
+            Audio plays through YouTube's embedded player or Spotify player engine. Nothing is hosted on this site, and all rights stay with the labels, composers and performers. Song credits are put together from film soundtrack listings.
+          </p>
+          <p class="takedown-text">
+            If you hold rights to anything here and want it taken off, let us know and it comes down immediately.
+          </p>
+          <p class="copyright-text">© 2026 AUTOWALA.IN</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- SINGLE UNIFIED FLOATING LIQUID GLASS PLAYER BAR (SAME PLAYER LAYOUT ALWAYS) -->
+  <div id="player-bar-fixed">
+    <div id="player-bar" class="liquid-glass-widget lg-component">
+      
+      <!-- Track Cover Artwork -->
+      <div class="player-thumb">
+        <img src="https://img.youtube.com/vi/665bcdJ2hQs/mqdefault.jpg" alt="Song cover" id="track-thumb">
+      </div>
+
+      <!-- Track Info Marquee & Scrubber Timeline Bar -->
+      <div class="player-meta">
+        <div class="song-title-row">
+          <div class="marquee-track" id="marquee-track">
+            <span class="song-title" id="track-title">Ek Sanam Chahiye Aashiqui Ke Liye — Kumar Sanu | Aashiqui (1990)</span>
+            <span class="song-title marquee-dup" id="track-title-dup">Ek Sanam Chahiye Aashiqui Ke Liye — Kumar Sanu | Aashiqui (1990)</span>
+          </div>
+        </div>
+
+        <div class="song-subtitle-row">
+          <span class="song-artist" id="track-artist">Kumar Sanu • Super Cassettes Industries</span>
+          <span class="engine-badge" id="source-tag">YOUTUBE</span>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar-bg">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <input type="range" id="seek-slider" min="0" max="100" value="0" step="0.1" aria-label="Seek track scrubber">
+          <div class="time-display">
+            <span id="time-current">0:00</span>
+            <span>/</span>
+            <span id="time-total">4:12</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls: Previous, Play / Pause, Next -->
+      <div class="player-controls">
+        <button class="ctrl-btn" id="btn-prev" title="Previous Track" aria-label="Previous Track">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+          </svg>
+        </button>
+
+        <button class="ctrl-btn play-circle" id="btn-play" title="Play / Pause" aria-label="Play / Pause">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" id="play-icon">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+
+        <button class="ctrl-btn" id="btn-next" title="Next Track" aria-label="Next Track">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Volume Control -->
+      <div class="player-volume">
+        <button class="ctrl-btn vol-btn" id="btn-vol" aria-label="Volume">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </button>
+        <div class="vol-slider-wrap">
+          <div class="vol-fill" id="vol-fill" style="width: 80%;"></div>
+          <input type="range" id="vol-slider" min="0" max="100" value="80" aria-label="Volume">
+        </div>
+      </div>
+
+      <!-- Source Switcher Switch (YT vs Spotify) -->
+      <div class="source-switcher lg-component">
+        <button class="source-tab active-yt" id="tab-yt" title="Switch to YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YT
+        </button>
+        <button class="source-tab" id="tab-spotify" title="Switch to Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          Spotify
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Hidden Embedded Media Containers -->
+  <div id="yt-player-hidden" style="width:0;height:0;overflow:hidden;position:absolute;visibility:hidden;">
+    <div id="yt-api-player"></div>
+  </div>
+  <audio id="spotify-audio-engine" preload="auto" style="display:none;"></audio>
+  
+  <!-- Spotify Embed Container -->
+  <div id="spotify-embed-container" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 999; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+    <iframe id="spotify-iframe" src="" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+
+  <!-- Customization Modal -->
+  <div id="customize-modal" class="modal-overlay hidden">
+    <div class="modal-content lg-component">
+      <div class="modal-header">
+        <h2>Customize Your Vibe</h2>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <label for="bg-url-input">Background Image</label>
+          <input type="text" id="bg-url-input" placeholder="Paste image URL here...">
+          <span style="font-size: 12px; color: rgba(255,255,255,0.6); display: block; margin: 5px 0;">OR</span>
+          <input type="file" id="bg-file-input" accept="image/*" class="file-input">
+        </div>
+        <div class="input-group">
+          <label for="playlist-url-input">Custom Playlist (YouTube / Spotify)</label>
+          <input type="text" id="playlist-url-input" placeholder="Paste playlist link here...">
+        </div>
+        <button id="btn-apply-custom" class="action-btn spotify-btn" style="width: 100%; margin-top: 15px; justify-content: center;">Apply Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="liquid-glass.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
