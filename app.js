@@ -176,8 +176,8 @@
           if (elSeekSlider) elSeekSlider.value = pct;
           if (elTimeCurrent) elTimeCurrent.textContent = formatTime(currentTime);
           if (elTimeTotal) elTimeTotal.textContent = formatTime(ytDur);
-          return;
         }
+        return; // Always return for YT, wait for it to load
       }
 
       // Spotify Engine Progress
@@ -191,17 +191,6 @@
         if (elTimeTotal) elTimeTotal.textContent = formatTime(dur);
         return;
       }
-
-      // Fallback timer
-      currentTime += 1;
-      if (currentTime >= track.duration) {
-        nextTrack();
-        return;
-      }
-      const pct = (currentTime / track.duration) * 100;
-      if (elProgressFill) elProgressFill.style.width = `${pct}%`;
-      if (elSeekSlider) elSeekSlider.value = pct;
-      if (elTimeCurrent) elTimeCurrent.textContent = formatTime(currentTime);
     }, 500);
   }
 
@@ -343,12 +332,32 @@
   window.onYouTubeIframeAPIReady = function () {
     ytPlayer = new YT.Player("yt-api-player", {
       videoId: PLAYLIST[0].ytVid,
-      playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, playsinline: 1, iv_load_policy: 3 },
+      playerVars: { 
+        autoplay: 0, 
+        controls: 0, 
+        modestbranding: 1, 
+        rel: 0, 
+        playsinline: 1, 
+        iv_load_policy: 3,
+        origin: window.location.origin // Critical for preventing CORS/playback blocking
+      },
       events: {
         onReady: () => {
-          ytPlayer.cueVideoById(PLAYLIST[0].ytVid);
+          console.log("YT Player Ready");
+          // Video is already queued via videoId, no need to cue again
+        },
+        onError: (event) => {
+          console.error("YT Error:", event.data);
+          // 101, 150 mean embedding blocked by owner. Auto-skip to next track.
+          if (isPlaying) {
+            nextTrack();
+          } else {
+            // Just load next track but don't autoplay if we were paused
+            loadTrack(currentTrackIdx + 1);
+          }
         },
         onStateChange: (event) => {
+          console.log("YT State:", event.data);
           if (currentSource === "yt") {
             if (event.data === YT.PlayerState.PLAYING) {
               isPlaying = true;
@@ -359,7 +368,6 @@
               updatePlayIcon();
             } else if (event.data === YT.PlayerState.ENDED) {
               nextTrack();
-              togglePlay();
             }
           }
         }
