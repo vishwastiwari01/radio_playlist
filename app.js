@@ -409,19 +409,35 @@
         // 2. Playlist Logic
         const playlistUrl = document.getElementById("playlist-url-input").value.trim();
         if (playlistUrl) {
-          if (playlistUrl.includes("youtube.com") || playlistUrl.includes("youtu.be")) {
+          const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
+          const defaultPlayer = document.getElementById("player-bar-fixed");
+          
+          if (playlistUrl.includes("spotify.com/playlist/")) {
+            // Extract Spotify Playlist ID
+            const match = playlistUrl.match(/playlist\/([a-zA-Z0-9]+)/);
+            if (match && match[1]) {
+              const spotifyIframe = document.getElementById("spotify-iframe");
+              spotifyIframe.src = `https://open.spotify.com/embed/playlist/${match[1]}?utm_source=generator&theme=0`;
+              
+              if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "block";
+              if (defaultPlayer) defaultPlayer.style.display = "none";
+              
+              if (isPlaying) togglePlay(); // Pause internal player so iframe can play
+            }
+          } else if (playlistUrl.includes("youtube.com") || playlistUrl.includes("youtu.be")) {
             // Extract YouTube Playlist ID
             const match = playlistUrl.match(/[?&]list=([^#\&\?]+)/);
             if (match && match[1] && ytPlayer) {
               ytPlayer.loadPlaylist({ list: match[1], listType: "playlist" });
-              switchSource("yt");
+              
+              if (spotifyEmbedContainer) spotifyEmbedContainer.style.display = "none";
+              if (defaultPlayer) defaultPlayer.style.display = "block";
+              
               // Update title to indicate custom playlist is loaded
               if (elTrackTitle) elTrackTitle.textContent = "Custom YouTube Playlist Loaded";
               if (elTrackTitleDup) elTrackTitleDup.textContent = "Custom YouTube Playlist Loaded";
               if (elTrackArtist) elTrackArtist.textContent = "Use player controls to skip tracks";
             }
-          } else {
-            alert("To use the aesthetic bottom player, please paste a YouTube playlist link instead of Spotify. Spotify requires a side widget!");
           }
         }
         
