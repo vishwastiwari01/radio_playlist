@@ -10,49 +10,40 @@
 
   const PLAYLIST = [
     {
-      title: "Ek Sanam Chahiye Aashiqui Ke Liye — Kumar Sanu | Aashiqui (1990)",
-      artist: "Kumar Sanu • Super Cassettes Industries",
-      ytThumb: "https://img.youtube.com/vi/665bcdJ2hQs/mqdefault.jpg",
-      spotifyThumb: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&auto=format&fit=crop&q=80",
-      duration: 252, // 4:12
-      ytVid: "665bcdJ2hQs",
-      audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=bollywood-ambient-112199.mp3"
+      title: "O Mere Dil Ke Chain — Kishore Kumar | Mere Jeevan Saathi (1972)",
+      artist: "Kishore Kumar, R.D. Burman",
+      ytThumb: "https://img.youtube.com/vi/kYJ4f64mXoI/mqdefault.jpg",
+      spotifyThumb: "https://img.youtube.com/vi/kYJ4f64mXoI/mqdefault.jpg",
+      duration: 272,
+      ytVid: "kYJ4f64mXoI",
+      audioUrl: ""
     },
     {
-      title: "Jo Bhi Kasmein Khai Thi Humne — Udit Narayan & Alka Yagnik | Raaz (2002)",
-      artist: "Udit Narayan, Alka Yagnik • Tips Music",
-      ytThumb: "https://img.youtube.com/vi/665bcdJ2hQs/mqdefault.jpg",
-      spotifyThumb: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&auto=format&fit=crop&q=80",
-      duration: 340, // 5:40
-      ytVid: "665bcdJ2hQs",
-      audioUrl: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=indian-flute-melody-14282.mp3"
+      title: "Pal Pal Dil Ke Paas — Kishore Kumar | Blackmail (1973)",
+      artist: "Kishore Kumar",
+      ytThumb: "https://img.youtube.com/vi/8-H6q1EOM70/mqdefault.jpg",
+      spotifyThumb: "https://img.youtube.com/vi/8-H6q1EOM70/mqdefault.jpg",
+      duration: 329,
+      ytVid: "8-H6q1EOM70",
+      audioUrl: ""
     },
     {
-      title: "Jhanjharia Meri Chhanak Gayi — Abhijeet Bhattacharya | Krishna (1996)",
-      artist: "Abhijeet • Time Magnetics",
-      ytThumb: "https://img.youtube.com/vi/665bcdJ2hQs/mqdefault.jpg",
-      spotifyThumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&auto=format&fit=crop&q=80",
-      duration: 315, // 5:15
-      ytVid: "665bcdJ2hQs",
-      audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7350b.mp3?filename=retro-street-beats-18231.mp3"
+      title: "Yeh Sham Mastani — Kishore Kumar | Kati Patang (1971)",
+      artist: "Kishore Kumar, R.D. Burman",
+      ytThumb: "https://img.youtube.com/vi/_sZg4eUB3QM/mqdefault.jpg",
+      spotifyThumb: "https://img.youtube.com/vi/_sZg4eUB3QM/mqdefault.jpg",
+      duration: 276,
+      ytVid: "_sZg4eUB3QM",
+      audioUrl: ""
     },
     {
-      title: "Main Agar Saamne — Abhijeet & Alka Yagnik | Raaz (2002)",
-      artist: "Abhijeet, Alka Yagnik • Tips Music",
-      ytThumb: "https://img.youtube.com/vi/665bcdJ2hQs/mqdefault.jpg",
-      spotifyThumb: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&auto=format&fit=crop&q=80",
-      duration: 346, // 5:46
-      ytVid: "665bcdJ2hQs",
-      audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=bollywood-ambient-112199.mp3"
-    },
-    {
-      title: "Pardesi Pardesi Jana Nahi — Udit Narayan & Alka Yagnik | Raja Hindustani (1996)",
-      artist: "Udit Narayan, Alka Yagnik • Tips Music",
-      ytThumb: "https://img.youtube.com/vi/665bcdJ2hQs/mqdefault.jpg",
-      spotifyThumb: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=300&auto=format&fit=crop&q=80",
-      duration: 451, // 7:31
-      ytVid: "665bcdJ2hQs",
-      audioUrl: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=indian-flute-melody-14282.mp3"
+      title: "Kya Hua Tera Vada — Mohammed Rafi | Hum Kisise Kum Naheen (1977)",
+      artist: "Mohammed Rafi, R.D. Burman",
+      ytThumb: "https://img.youtube.com/vi/n76L9R2HcwE/mqdefault.jpg",
+      spotifyThumb: "https://img.youtube.com/vi/n76L9R2HcwE/mqdefault.jpg",
+      duration: 260,
+      ytVid: "n76L9R2HcwE",
+      audioUrl: ""
     }
   ];
 
@@ -99,10 +90,10 @@
   updateClock();
   setInterval(updateClock, 10000);
 
-  let baseOnline = 28430;
+  let baseOnline = 3142;
   setInterval(() => {
     const delta = Math.floor(Math.random() * 15) - 5;
-    baseOnline = Math.max(25000, Math.min(32000, baseOnline + delta));
+    baseOnline = Math.max(1000, Math.min(5000, baseOnline + delta));
     if (elOnlineCount) elOnlineCount.textContent = `${baseOnline.toLocaleString()} online`;
   }, 4000);
 
@@ -376,14 +367,6 @@
 
     loadTrack(0);
 
-    // Auto-load user's custom Spotify playlist on load
-    const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
-    const spotifyIframe = document.getElementById("spotify-iframe");
-    if (spotifyIframe && spotifyEmbedContainer) {
-      spotifyIframe.src = `https://open.spotify.com/embed/playlist/37i9dQZF1DWYRTlrhMB12D?utm_source=generator&theme=0`;
-      spotifyEmbedContainer.style.display = "block";
-    }
-
     if (typeof liquidGlass === "function") {
       document.querySelectorAll(".lg-component").forEach((el) => {
         liquidGlass(el, {
@@ -426,18 +409,7 @@
         // 2. Playlist Logic
         const playlistUrl = document.getElementById("playlist-url-input").value.trim();
         if (playlistUrl) {
-          if (playlistUrl.includes("spotify.com/playlist/")) {
-            // Extract Spotify Playlist ID
-            const match = playlistUrl.match(/playlist\/([a-zA-Z0-9]+)/);
-            if (match && match[1]) {
-              const spotifyEmbedContainer = document.getElementById("spotify-embed-container");
-              const spotifyIframe = document.getElementById("spotify-iframe");
-              spotifyIframe.src = `https://open.spotify.com/embed/playlist/${match[1]}?utm_source=generator&theme=0`;
-              spotifyEmbedContainer.style.display = "block";
-              switchSource("spotify");
-              if (isPlaying) togglePlay(); // Pause internal player so iframe can play
-            }
-          } else if (playlistUrl.includes("youtube.com") || playlistUrl.includes("youtu.be")) {
+          if (playlistUrl.includes("youtube.com") || playlistUrl.includes("youtu.be")) {
             // Extract YouTube Playlist ID
             const match = playlistUrl.match(/[?&]list=([^#\&\?]+)/);
             if (match && match[1] && ytPlayer) {
@@ -448,6 +420,8 @@
               if (elTrackTitleDup) elTrackTitleDup.textContent = "Custom YouTube Playlist Loaded";
               if (elTrackArtist) elTrackArtist.textContent = "Use player controls to skip tracks";
             }
+          } else {
+            alert("To use the aesthetic bottom player, please paste a YouTube playlist link instead of Spotify. Spotify requires a side widget!");
           }
         }
         
